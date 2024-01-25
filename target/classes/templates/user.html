@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lqng="fr" xmlns:th="http://WWW.thymeleaf.org">
+
+<head>
+  <meta charset="ISO-8859-1">
+
+  <style>
+    table {
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 20px;
+      padding: 5px;
+
+    }
+
+    th,
+
+    td {
+      border: 1px solid black;
+    }
+
+    th {
+      background-color: #0077A8;
+      color: white;
+      width: 50cm;
+    }
+
+    td {
+      padding-left: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th>Nom complet</th>
+      <th>Telephone</th>
+      <th>Email</th>
+      <th>Adresse</th>
+      <th>Date</th>
+      <th>Service</th>
+      <th>Message</th>
+    </tr>
+    <tr th:each="users : ${user}">
+      <td th:text="${users.name}"></td>
+      <td th:text="${users.phone}"></td>
+      <td th:text="${users.email}"></td>
+      <td th:text="${users.Adress}"></td>
+      <td th:text="${users.dR}"></td>
+      <td th:text="${users.service}"></td>
+      <td th:text="${users.note}"></td>
+    </tr>
+  </table>
+</body>
+
+</html>

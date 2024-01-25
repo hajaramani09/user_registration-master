@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReservationServlet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">user_registration</a> &gt; <a href="index.source.html" class="el_package">codingtechniques.Servlet</a> &gt; <span class="el_source">ReservationServlet.java</span></div><h1>ReservationServlet.java</h1><pre class="source lang-java linenums">package codingtechniques.Servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet(&quot;/ReservationServlet&quot;)
+public class ReservationServlet extends HttpServlet {
+
+<span class="nc" id="L15">    public ReservationServlet() {</span>
+<span class="nc" id="L16">    }</span>
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<span class="nc" id="L20">        resp.setContentType(&quot;text/html&quot;);</span>
+<span class="nc" id="L21">        PrintWriter out = resp.getWriter();</span>
+<span class="nc" id="L22">        out.print(&quot;&lt;html&gt;&lt;body&gt;&quot;);</span>
+<span class="nc" id="L23">        out.print(&quot;            &lt;!-- start of wpo-contact-section --&gt;\r\n&quot; + //</span>
+                &quot;            &lt;section class=\&quot;wpo-contact-section section-padding\&quot;&gt;\r\n&quot; + //
+                &quot;                &lt;div class=\&quot;container\&quot;&gt;\r\n&quot; + //
+                &quot;                    &lt;div class=\&quot;wpo-contact-section-wrapper\&quot;&gt;\r\n&quot; + //
+                &quot;                        &lt;div class=\&quot;wpo-contact-form-area\&quot;&gt;\r\n&quot; + //
+                &quot;                            &lt;div class=\&quot;wpo-section-title\&quot;&gt;\r\n&quot; + //
+                &quot;                                &lt;span&gt;Jnane Yasmine&lt;/span&gt;\r\n&quot; + //
+                &quot;                                &lt;h1&gt;Réservation&lt;/h1&gt;\r\n&quot; + //
+                &quot;                                &lt;div class=\&quot;section-title-img\&quot;&gt;\r\n&quot; + //
+                &quot;                                    &lt;img src=\&quot;assets/images/section-title.png\&quot; alt=\&quot;\&quot;&gt;\r\n&quot; + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;                            &lt;/div&gt;\r\n&quot; + //
+                &quot;                            &lt;form th:action=\&quot;@{../reservation}\&quot;  method=\&quot;post\&quot; class=\&quot;contact-validation-active\&quot; id=\&quot;contact-form-main\&quot;&gt;\r\n&quot;
+                + //
+                &quot;                                &lt;div&gt;\r\n&quot; + //
+                &quot;                                    &lt;input type=\&quot;text\&quot; class=\&quot;form-control\&quot; name=\&quot;name\&quot; id=\&quot;name\&quot;\r\n&quot;
+                + //
+                &quot;                                        placeholder=\&quot;Nom complet \&quot;&gt;\r\n&quot; + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;                                &lt;div&gt;\r\n&quot; + //
+                &quot;                                    &lt;input type=\&quot;text\&quot; class=\&quot;form-control\&quot; name=\&quot;phone\&quot; id=\&quot;phone\&quot;\r\n&quot;
+                + //
+                &quot;                                        placeholder=\&quot;Téléphone \&quot;&gt;\r\n&quot; + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;                                &lt;div&gt;\r\n&quot; + //
+                &quot;                                    &lt;input type=\&quot;email\&quot; class=\&quot;form-control\&quot; name=\&quot;email\&quot; id=\&quot;email\&quot;\r\n&quot;
+                + //
+                &quot;                                        placeholder=\&quot;Email\&quot;&gt;\r\n&quot; + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;                                &lt;div&gt;\r\n&quot; + //
+                &quot;                                    &lt;input type=\&quot;text\&quot; class=\&quot;form-control\&quot; name=\&quot;Adress\&quot; id=\&quot;Adress\&quot;\r\n&quot;
+                + //
+                &quot;                                        placeholder=\&quot;Adresse\&quot;&gt;\r\n&quot; + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;\r\n&quot; + //
+                &quot;\r\n&quot; + //
+                &quot;                                &lt;div&gt;\r\n&quot; + //
+                &quot;                                    &lt;input type=\&quot;date\&quot; class=\&quot;form-control\&quot; name=\&quot;dR\&quot; id=\&quot;dR\&quot;&gt;\r\n&quot;
+                + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;                                &lt;div&gt;\r\n&quot; + //
+                &quot;                                    &lt;select name=\&quot;service\&quot; class=\&quot;form-control\&quot;&gt;\r\n&quot; + //
+                &quot;                                        &lt;option disabled=\&quot;disabled\&quot; selected=\&quot;\&quot;&gt;S'il vous plaît,sélectionnez un service\r\n&quot;
+                + //
+                &quot;                                        &lt;/option&gt;\r\n&quot; + //
+                &quot;                                        &lt;option&gt;Restaurant&lt;/option&gt;\r\n&quot; + //
+                &quot;                                        &lt;option&gt;Piscine &lt;/option&gt;\r\n&quot; + //
+                &quot;                                        &lt;option&gt;Salle de Fête&lt;/option&gt;\r\n&quot; + //
+                &quot;                                        &lt;option&gt;Activités et Détent&lt;/option&gt;\r\n&quot; + //
+                &quot;                                        &lt;option&gt;cuisine Marocaine&lt;/option&gt;\r\n&quot; + //
+                &quot;                                        &lt;option&gt;Traiteur&lt;/option&gt;\r\n&quot; + //
+                &quot;                                        &lt;option&gt;Neggafa&lt;/option&gt;\r\n&quot; + //
+                &quot;                                        &lt;option&gt;Bungalows&lt;/option&gt;\r\n&quot; + //
+                &quot;                                    &lt;/select&gt;\r\n&quot; + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;                                &lt;div&gt;\r\n&quot; + //
+                &quot;                                    &lt;textarea class=\&quot;form-control\&quot; name=\&quot;note\&quot; id=\&quot;note\&quot;\r\n&quot; + //
+                &quot;                                        placeholder=\&quot;Message...\&quot;&gt;&lt;/textarea&gt;\r\n&quot; + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;                                &lt;div class=\&quot;submit-area\&quot;&gt;\r\n&quot; + //
+                &quot;                                    &lt;button type=\&quot;submit\&quot; class=\&quot;theme-btn-s3\&quot; valeur=\&quot;reservation\&quot;&gt;Réserver&lt;/button&gt;\r\n&quot;
+                + //
+                &quot;                                    &lt;div id=\&quot;c-loader\&quot;&gt;\r\n&quot; + //
+                &quot;                                        &lt;i class=\&quot;ti-reload\&quot;&gt;&lt;/i&gt;\r\n&quot; + //
+                &quot;                                    &lt;/div&gt;\r\n&quot; + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;                                &lt;div class=\&quot;clearfix error-handling-messages\&quot;&gt;\r\n&quot; + //
+                &quot;                                    &lt;div id=\&quot;success\&quot;&gt;Merci&lt;/div&gt;\r\n&quot; + //
+                &quot;                                    &lt;div id=\&quot;error\&quot;&gt; Une erreur s'est produite lors de l'envoi du courrier électronique.\r\n&quot;
+                + //
+                &quot;                                        Veuillez réessayer plus tard.\r\n&quot; + //
+                &quot;                                    &lt;/div&gt;\r\n&quot; + //
+                &quot;                                &lt;/div&gt;\r\n&quot; + //
+                &quot;                            &lt;/form&gt;\r\n&quot; + //
+                &quot;                            &lt;div class=\&quot;border-style\&quot;&gt;&lt;/div&gt;\r\n&quot; + //
+                &quot;                        &lt;/div&gt;\r\n&quot; + //
+                &quot;                        &lt;div class=\&quot;vector-1\&quot;&gt;\r\n&quot; + //
+                &quot;\r\n&quot; + //
+                &quot;                        &lt;/div&gt;\r\n&quot; + //
+                &quot;                        &lt;div class=\&quot;vector-2\&quot;&gt;\r\n&quot; + //
+                &quot;\r\n&quot; + //
+                &quot;                        &lt;/div&gt;\r\n&quot; + //
+                &quot;                    &lt;/div&gt;\r\n&quot; + //
+                &quot;                &lt;/div&gt;\r\n&quot; + //
+                &quot;            &lt;/section&gt;\r\n&quot; + //
+                &quot;            &lt;!-- end of wpo-contact-section --&gt;&quot;);
+<span class="nc" id="L109">        out.print(&quot;&lt;/body&gt;&lt;/html&gt;&quot;);</span>
+
+<span class="nc" id="L111">        super.doGet(req, resp);</span>
+<span class="nc" id="L112">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

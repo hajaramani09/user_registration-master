@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "UserRegistrationApplication",
+            "request": "launch",
+            "mainClass": "codingtechniques.UserRegistrationApplication",
+            "projectName": "user_registration"
+        }
+    ]
+}

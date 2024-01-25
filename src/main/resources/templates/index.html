@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://WWW.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="wpOceans">
+</head>
+
+<body>
+
+    <form th:action="reservation" th:method="post" class="contact-validation-active" id="contact-form-main" role="form"
+        th:object="${reservation}">
+        <div>
+            <input type="text" th:field="*{name}" class="form-control" name="name" id="name" placeholder="Nom complet ">
+        </div>
+        <div>
+            <input type="text" th:field="*{phone}" class="form-control" name="phone" id="phone"
+                placeholder="Téléphone ">
+        </div>
+        <div>
+            <input type="email" th:field="*{email}" class="form-control" name="email" id="email" placeholder="Email">
+        </div>
+        <div>
+            <input type="text" th:field="*{Adress}" class="form-control" name="Adress" id="Adress"
+                placeholder="Adresse">
+        </div>
+        <div>
+            <input type="date" th:field="*{dR}" class="form-control" name="dR" id="dR">
+        </div>
+        <div>
+            <select th:field="*{service}" name="service" class="form-control">
+                <option disabled="disabled" selected="">S'il vous plaît,sélectionnez un service
+                </option>
+                <option>Restaurant</option>
+                <option>Piscine </option>
+                <option>Salle de Fête</option>
+                <option>Activités et Détent</option>
+                <option>cuisine Marocaine</option>
+                <option>Traiteur</option>
+                <option>Neggafa</option>
+                <option>Bungalows</option>
+            </select>
+        </div>
+        <div>
+            <textarea class="form-control" name="note" th:field="*{note}" id="note" placeholder="Message..."></textarea>
+        </div>
+        <div class="submit-area">
+            <button type="submit" class="theme-btn-s3">Réserver</button>
+            <div id="c-loader">
+                <i class="ti-reload"></i>
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+</body>
+
+</html>

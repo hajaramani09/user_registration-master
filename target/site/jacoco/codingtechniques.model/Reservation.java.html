@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Reservation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">user_registration</a> &gt; <a href="index.source.html" class="el_package">codingtechniques.model</a> &gt; <span class="el_source">Reservation.java</span></div><h1>Reservation.java</h1><pre class="source lang-java linenums">package codingtechniques.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = &quot;reservation&quot;)
+@Getter
+<span class="nc" id="L23">@Setter</span>
+
+public class Reservation implements Serializable {
+
+<span class="nc" id="L27">    public Reservation() {</span>
+<span class="nc" id="L28">    }</span>
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+    private int id; // clé primaire
+
+    @Column(name = &quot;name&quot;, nullable = false, length = 51)
+    @NotNull(message = &quot;Le nom complet est un champ obligatoire&quot;)
+    private String name;
+
+    @Column(name = &quot;Adress&quot;, nullable = false, length = 80)
+    @NotNull(message = &quot;l'adResse est un champ obligatoire&quot;)
+    private String Adress;
+
+    @Column(name = &quot;phone&quot;, nullable = false, length = 20)
+    @NotNull(message = &quot;le téléphone est un champ obligatoire&quot;)
+    private String phone;
+
+    @Column(name = &quot;email&quot;)
+    @NotNull(message = &quot;l'e-mail est un champ obligatoire&quot;)
+    private String email;
+
+    @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;)
+    @Column(name = &quot;dR&quot;)
+    @NotNull(message = &quot;La date est un champ obligatoire&quot;)
+<span class="nc" id="L54">    private Date dR;</span>
+
+    @Column(name = &quot;note&quot;)
+    @NotNull(message = &quot;La description est un champ obligatoire&quot;)
+    private String note;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;Service&quot;)
+    @NotNull(message = &quot;la sélection d'un service est obligatoire&quot;)
+    private Service service;
+
+    public Reservation(int id, String name, String Adress, String phone, String email, Date dR, String note,
+<span class="nc" id="L66">            Service service) {</span>
+<span class="nc" id="L67">        this.id = id;</span>
+<span class="nc" id="L68">        this.name = name;</span>
+<span class="nc" id="L69">        this.Adress = Adress;</span>
+<span class="nc" id="L70">        this.phone = phone;</span>
+<span class="nc" id="L71">        this.email = email;</span>
+<span class="nc" id="L72">        this.dR = dR;</span>
+<span class="nc" id="L73">        this.note = note;</span>
+<span class="nc" id="L74">        this.service = service;</span>
+<span class="nc" id="L75">    }</span>
+
+    public int getId() {
+<span class="nc" id="L78">        return id;</span>
+    }
+
+    public void setId(int id) {
+<span class="nc" id="L82">        this.id = id;</span>
+<span class="nc" id="L83">    }</span>
+
+    public String getname() {
+<span class="nc" id="L86">        return name;</span>
+    }
+
+    public void setname(String name) {
+<span class="nc" id="L90">        this.name = name;</span>
+<span class="nc" id="L91">    }</span>
+
+    public String getAdress() {
+<span class="nc" id="L94">        return Adress;</span>
+    }
+
+    public void setAdress(String Adress) {
+<span class="nc" id="L98">        this.Adress = Adress;</span>
+<span class="nc" id="L99">    }</span>
+
+    public String getphone() {
+<span class="nc" id="L102">        return phone;</span>
+    }
+
+    public void setphone(String phone) {
+<span class="nc" id="L106">        this.phone = phone;</span>
+<span class="nc" id="L107">    }</span>
+
+    public String getEmail() {
+<span class="nc" id="L110">        return email;</span>
+    }
+
+    public void setEmail(String email) {
+<span class="nc" id="L114">        this.email = email;</span>
+<span class="nc" id="L115">    }</span>
+
+    public Date getDate() {
+<span class="nc" id="L118">        return dR;</span>
+    }
+
+    public void setDate(Date dR) {
+<span class="nc" id="L122">        this.dR = dR;</span>
+<span class="nc" id="L123">    }</span>
+
+    public String getnote() {
+<span class="nc" id="L126">        return note;</span>
+    }
+
+    public void setnote(String note) {
+<span class="nc" id="L130">        this.note = note;</span>
+<span class="nc" id="L131">    }</span>
+
+    public Service getService() {
+<span class="nc" id="L134">        return service;</span>
+    }
+
+    public void setService(Service S) {
+<span class="nc" id="L138">        this.service = S;</span>
+<span class="nc" id="L139">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L143">        return &quot;Reservation [id=&quot; + id + &quot;, name=&quot; + name + &quot;, Adress=&quot; + Adress + &quot;, phone=&quot; + phone + &quot;, email=&quot;</span>
+                + email + &quot;, dR=&quot; + dR + &quot;, note=&quot; + note + &quot;, Service=&quot; + service + &quot;]&quot;;
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
