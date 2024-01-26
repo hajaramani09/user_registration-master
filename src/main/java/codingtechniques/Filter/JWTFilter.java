@@ -28,7 +28,8 @@ public class JWTFilter extends OncePerRequestFilter {
 	private static final Log LOG = LogFactory.getLog(JWTFilter.class);
 
 	@Override
-	protected void doFilterInternal(@NonNull HttpServletRequest req, @NonNull HttpServletResponse res, @NonNull FilterChain chain)
+	protected void doFilterInternal(@NonNull HttpServletRequest req, @NonNull HttpServletResponse res,
+			@NonNull FilterChain chain)
 			throws ServletException, IOException {
 
 		Collections.list(req.getHeaderNames()).forEach((header -> {
@@ -51,16 +52,17 @@ public class JWTFilter extends OncePerRequestFilter {
 		chain.doFilter(req, res);
 
 	}
+
 	@Bean
-public CommandLineRunner cmdLineRunner(ApplicationContext context) {
-    return args -> {
-        ServletContextInitializerBeans scib = new ServletContextInitializerBeans(context,
-                FilterRegistrationBean.class, DelegatingFilterProxyRegistrationBean.class);
-        System.out.println("----");
-        scib.iterator().forEachRemaining(s -> {
-            System.out.println(s);
-        });
-    };
-}
+	public CommandLineRunner cmdLineRunner(ApplicationContext context) {
+		return args -> {
+			ServletContextInitializerBeans scib = new ServletContextInitializerBeans(context,
+					FilterRegistrationBean.class, DelegatingFilterProxyRegistrationBean.class);
+			System.out.println("----");
+			scib.iterator().forEachRemaining(s -> {
+				System.out.println(s);
+			});
+		};
+	}
 
 }

@@ -28,40 +28,42 @@ import org.springframework.web.filter.OncePerRequestFilter;
 <span class="nc" id="L28">	private static final Log LOG = LogFactory.getLog(JWTFilter.class);</span>
 
 	@Override
-	protected void doFilterInternal(@NonNull HttpServletRequest req, @NonNull HttpServletResponse res, @NonNull FilterChain chain)
+	protected void doFilterInternal(@NonNull HttpServletRequest req, @NonNull HttpServletResponse res,
+			@NonNull FilterChain chain)
 			throws ServletException, IOException {
 
-<span class="nc" id="L34">		Collections.list(req.getHeaderNames()).forEach((header -&gt; {</span>
-<span class="nc" id="L35">			LOG.info(&quot;Header :{}={}&quot; + header + req.getHeader(header));</span>
-<span class="nc" id="L36">		}));</span>
+<span class="nc" id="L35">		Collections.list(req.getHeaderNames()).forEach((header -&gt; {</span>
+<span class="nc" id="L36">			LOG.info(&quot;Header :{}={}&quot; + header + req.getHeader(header));</span>
+<span class="nc" id="L37">		}));</span>
 
 		try {
-<span class="nc" id="L39">			LOG.info(&quot;Démarrage d'une transaction pour demande : {}&quot; + req.getRequestURI());</span>
+<span class="nc" id="L40">			LOG.info(&quot;Démarrage d'une transaction pour demande : {}&quot; + req.getRequestURI());</span>
 
-<span class="nc" id="L41">			chain.doFilter(req, res);</span>
-<span class="nc" id="L42">			LOG.info(&quot;Validation d'une transaction pour demande :{}&quot; + req.getRequestURI());</span>
+<span class="nc" id="L42">			chain.doFilter(req, res);</span>
+<span class="nc" id="L43">			LOG.info(&quot;Validation d'une transaction pour demande :{}&quot; + req.getRequestURI());</span>
 
-<span class="nc" id="L44">			LOG.info(&quot;Demande de journalisation {}: &quot; + req.getMethod() + req.getRequestURI());</span>
-<span class="nc" id="L45">			LOG.info(&quot;Réponse de journalisation : {}&quot; + res.getContentType());</span>
-<span class="nc" id="L46">		} catch (Exception e) {</span>
-<span class="nc" id="L47">			LOG.error(&quot;Erreur dans le filtre&quot;, e);</span>
-<span class="nc" id="L48">			res.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);</span>
-<span class="nc" id="L49">		}</span>
+<span class="nc" id="L45">			LOG.info(&quot;Demande de journalisation {}: &quot; + req.getMethod() + req.getRequestURI());</span>
+<span class="nc" id="L46">			LOG.info(&quot;Réponse de journalisation : {}&quot; + res.getContentType());</span>
+<span class="nc" id="L47">		} catch (Exception e) {</span>
+<span class="nc" id="L48">			LOG.error(&quot;Erreur dans le filtre&quot;, e);</span>
+<span class="nc" id="L49">			res.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);</span>
+<span class="nc" id="L50">		}</span>
 
-<span class="nc" id="L51">		chain.doFilter(req, res);</span>
+<span class="nc" id="L52">		chain.doFilter(req, res);</span>
 
-<span class="nc" id="L53">	}</span>
+<span class="nc" id="L54">	}</span>
+
 	@Bean
-public CommandLineRunner cmdLineRunner(ApplicationContext context) {
-<span class="nc" id="L56">    return args -&gt; {</span>
-<span class="nc" id="L57">        ServletContextInitializerBeans scib = new ServletContextInitializerBeans(context,</span>
-                FilterRegistrationBean.class, DelegatingFilterProxyRegistrationBean.class);
-<span class="nc" id="L59">        System.out.println(&quot;----&quot;);</span>
-<span class="nc" id="L60">        scib.iterator().forEachRemaining(s -&gt; {</span>
-<span class="nc" id="L61">            System.out.println(s);</span>
-<span class="nc" id="L62">        });</span>
-<span class="nc" id="L63">    };</span>
-}
+	public CommandLineRunner cmdLineRunner(ApplicationContext context) {
+<span class="nc" id="L58">		return args -&gt; {</span>
+<span class="nc" id="L59">			ServletContextInitializerBeans scib = new ServletContextInitializerBeans(context,</span>
+					FilterRegistrationBean.class, DelegatingFilterProxyRegistrationBean.class);
+<span class="nc" id="L61">			System.out.println(&quot;----&quot;);</span>
+<span class="nc" id="L62">			scib.iterator().forEachRemaining(s -&gt; {</span>
+<span class="nc" id="L63">				System.out.println(s);</span>
+<span class="nc" id="L64">			});</span>
+<span class="nc" id="L65">		};</span>
+	}
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

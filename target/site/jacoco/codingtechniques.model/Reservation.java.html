@@ -14,23 +14,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+
 
 @Entity
+<span class="nc bnc" id="L21" title="All 64 branches missed.">@Data</span>
 @Table(name = &quot;reservation&quot;)
-@Getter
-<span class="nc" id="L23">@Setter</span>
+
 
 public class Reservation implements Serializable {
 
 <span class="nc" id="L27">    public Reservation() {</span>
 <span class="nc" id="L28">    }</span>
 
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = &quot;id&quot;)
-    private int id; // clé primaire
+    private int id;
 
     @Column(name = &quot;name&quot;, nullable = false, length = 51)
     @NotNull(message = &quot;Le nom complet est un champ obligatoire&quot;)
@@ -51,7 +52,7 @@ public class Reservation implements Serializable {
     @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;)
     @Column(name = &quot;dR&quot;)
     @NotNull(message = &quot;La date est un champ obligatoire&quot;)
-<span class="nc" id="L54">    private Date dR;</span>
+<span class="nc" id="L55">    private Date dR;</span>
 
     @Column(name = &quot;note&quot;)
     @NotNull(message = &quot;La description est un champ obligatoire&quot;)
@@ -63,84 +64,84 @@ public class Reservation implements Serializable {
     private Service service;
 
     public Reservation(int id, String name, String Adress, String phone, String email, Date dR, String note,
-<span class="nc" id="L66">            Service service) {</span>
-<span class="nc" id="L67">        this.id = id;</span>
-<span class="nc" id="L68">        this.name = name;</span>
-<span class="nc" id="L69">        this.Adress = Adress;</span>
-<span class="nc" id="L70">        this.phone = phone;</span>
-<span class="nc" id="L71">        this.email = email;</span>
-<span class="nc" id="L72">        this.dR = dR;</span>
-<span class="nc" id="L73">        this.note = note;</span>
-<span class="nc" id="L74">        this.service = service;</span>
-<span class="nc" id="L75">    }</span>
+<span class="nc" id="L67">            Service service) {</span>
+<span class="nc" id="L68">        this.id = id;</span>
+<span class="nc" id="L69">        this.name = name;</span>
+<span class="nc" id="L70">        this.Adress = Adress;</span>
+<span class="nc" id="L71">        this.phone = phone;</span>
+<span class="nc" id="L72">        this.email = email;</span>
+<span class="nc" id="L73">        this.dR = dR;</span>
+<span class="nc" id="L74">        this.note = note;</span>
+<span class="nc" id="L75">        this.service = service;</span>
+<span class="nc" id="L76">    }</span>
 
     public int getId() {
-<span class="nc" id="L78">        return id;</span>
+<span class="nc" id="L79">        return id;</span>
     }
 
     public void setId(int id) {
-<span class="nc" id="L82">        this.id = id;</span>
-<span class="nc" id="L83">    }</span>
+<span class="nc" id="L83">        this.id = id;</span>
+<span class="nc" id="L84">    }</span>
 
     public String getname() {
-<span class="nc" id="L86">        return name;</span>
+<span class="nc" id="L87">        return name;</span>
     }
 
     public void setname(String name) {
-<span class="nc" id="L90">        this.name = name;</span>
-<span class="nc" id="L91">    }</span>
+<span class="nc" id="L91">        this.name = name;</span>
+<span class="nc" id="L92">    }</span>
 
     public String getAdress() {
-<span class="nc" id="L94">        return Adress;</span>
+<span class="nc" id="L95">        return Adress;</span>
     }
 
     public void setAdress(String Adress) {
-<span class="nc" id="L98">        this.Adress = Adress;</span>
-<span class="nc" id="L99">    }</span>
+<span class="nc" id="L99">        this.Adress = Adress;</span>
+<span class="nc" id="L100">    }</span>
 
     public String getphone() {
-<span class="nc" id="L102">        return phone;</span>
+<span class="nc" id="L103">        return phone;</span>
     }
 
     public void setphone(String phone) {
-<span class="nc" id="L106">        this.phone = phone;</span>
-<span class="nc" id="L107">    }</span>
+<span class="nc" id="L107">        this.phone = phone;</span>
+<span class="nc" id="L108">    }</span>
 
     public String getEmail() {
-<span class="nc" id="L110">        return email;</span>
+<span class="nc" id="L111">        return email;</span>
     }
 
     public void setEmail(String email) {
-<span class="nc" id="L114">        this.email = email;</span>
-<span class="nc" id="L115">    }</span>
+<span class="nc" id="L115">        this.email = email;</span>
+<span class="nc" id="L116">    }</span>
 
     public Date getDate() {
-<span class="nc" id="L118">        return dR;</span>
+<span class="nc" id="L119">        return dR;</span>
     }
 
     public void setDate(Date dR) {
-<span class="nc" id="L122">        this.dR = dR;</span>
-<span class="nc" id="L123">    }</span>
+<span class="nc" id="L123">        this.dR = dR;</span>
+<span class="nc" id="L124">    }</span>
 
     public String getnote() {
-<span class="nc" id="L126">        return note;</span>
+<span class="nc" id="L127">        return note;</span>
     }
 
     public void setnote(String note) {
-<span class="nc" id="L130">        this.note = note;</span>
-<span class="nc" id="L131">    }</span>
+<span class="nc" id="L131">        this.note = note;</span>
+<span class="nc" id="L132">    }</span>
 
     public Service getService() {
-<span class="nc" id="L134">        return service;</span>
+<span class="nc" id="L135">        return service;</span>
     }
 
     public void setService(Service S) {
-<span class="nc" id="L138">        this.service = S;</span>
-<span class="nc" id="L139">    }</span>
+<span class="nc" id="L139">        this.service = S;</span>
+<span class="nc" id="L140">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L143">        return &quot;Reservation [id=&quot; + id + &quot;, name=&quot; + name + &quot;, Adress=&quot; + Adress + &quot;, phone=&quot; + phone + &quot;, email=&quot;</span>
+<span class="nc" id="L144">        return &quot;Reservation [id=&quot; + id + &quot;, name=&quot; + name + &quot;, Adress=&quot; + Adress + &quot;, phone=&quot; + phone + &quot;, email=&quot;</span>
                 + email + &quot;, dR=&quot; + dR + &quot;, note=&quot; + note + &quot;, Service=&quot; + service + &quot;]&quot;;
     }
 

@@ -13,5 +13,6 @@ codingtechniques\AppSecurityConfig\JpaConfig.class
 codingtechniques\model\Service.class
 codingtechniques\repositories\ReservationRepository.class
 codingtechniques\AppSecurityConfig\ApiAuthenticationEntryPoint.class
+codingtechniques\WebMvcConfig\MyConfigMvc.class
 codingtechniques\service\ReservationServiceImpl.class
 codingtechniques\WebServerFactory.class

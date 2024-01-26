@@ -10,21 +10,21 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
- 
+import org.springframework.stereotype.Repository;
 import org.springframework.web.server.ResponseStatusException;
 
 import codingtechniques.model.Reservation;
 import codingtechniques.model.Service;
 import codingtechniques.repositories.ReservationRepository;
 
-@org.springframework.stereotype.Service
+@Repository
 
 public class ReservationServiceImpl {
 
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,12 +52,7 @@ public class ReservationServiceImpl {
     @Autowired
     static ReservationRepository userInterface;
 
-    public List<Reservation> getReservation() {
-        List<Reservation> users = new ArrayList<Reservation>();
-        userInterface.findAll().forEach(users::add);
-        return users;
-    }
-
+  
     public Reservation addReservation(Reservation user) {
         if (user.getname() == null || user.getname().equals(""))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Nom Complet invalide");
@@ -144,18 +139,5 @@ public class ReservationServiceImpl {
         return result; // Ajoutez le retour de la liste
     }
 
-    public void insert(Reservation reservation) {
-        // Implémentez la logique d'insertion ici
-    }
-
-    public void update(Reservation reservation) {
-        // Implémentez la logique de mise à jour ici
-    }
-
-    public void delete(int  id) {
-
-    }
-
-    public void generateAdmin() {
-    }
+    
 }

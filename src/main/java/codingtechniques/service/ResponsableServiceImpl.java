@@ -10,24 +10,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
- 
+import org.springframework.stereotype.Repository;
+
 import org.springframework.web.server.ResponseStatusException;
 import codingtechniques.model.Responsable;
 import codingtechniques.repositories.ResponsableRepositories;
 
-@Service
+@Repository
 public class ResponsableServiceImpl {
 
     static {
         try {
-            Class.forName("com.mysql.cj.jdbc.driver"); 
+            Class.forName("com.mysql.cj.jdbc.driver");
         } catch (Exception e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
     }
-
-   
 
     public void closeConnection(Connection connection) {
         try {
@@ -83,7 +81,6 @@ public class ResponsableServiceImpl {
         return user.get();
     }
 
-   
     /**
      * @param userId
      * @param user
@@ -106,10 +103,5 @@ public class ResponsableServiceImpl {
         return user;
     }
 
-    public Responsable generateAdmin() {
-        if (userInterface.findByEmail("xxxxxx@gmail.ma").isPresent())
-            return null;
-        Responsable user = new Responsable(1, "admin", "xxxxxx@gmail.ma");
-        return userInterface.save(user);
-    }
+    
 }

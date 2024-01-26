@@ -14,23 +14,24 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+
 
 @Entity
+@Data
 @Table(name = "reservation")
-@Getter
-@Setter
+
 
 public class Reservation implements Serializable {
 
     public Reservation() {
     }
 
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id; // clé primaire
+    private int id;
 
     @Column(name = "name", nullable = false, length = 51)
     @NotNull(message = "Le nom complet est un champ obligatoire")

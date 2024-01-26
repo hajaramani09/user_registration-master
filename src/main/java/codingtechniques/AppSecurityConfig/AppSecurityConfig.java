@@ -8,7 +8,6 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.RegistrationBean;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationEventPublisher;
 import org.springframework.security.authentication.DefaultAuthenticationEventPublisher;
 import org.springframework.security.config.Customizer;
@@ -26,9 +25,9 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
 import codingtechniques.Filter.JWTFilter;
 
-@Configuration
 @SpringBootApplication
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
@@ -61,7 +60,6 @@ public class AppSecurityConfig {
     }
 
     @Bean
-
     public InMemoryUserDetailsManager userDetailsService() {
         UserDetails reponsable = User.builder().username("responsable")
                 .password("")
@@ -100,6 +98,5 @@ public class AppSecurityConfig {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-  
 
 }

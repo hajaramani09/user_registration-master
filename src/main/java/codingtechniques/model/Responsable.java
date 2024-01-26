@@ -8,20 +8,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "responsable")
-@Getter
-@Setter
+
 public class Responsable implements Serializable {
 
     public Responsable() {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id; // clé primaire
 
@@ -63,14 +60,6 @@ public class Responsable implements Serializable {
         this.pwd = pwd;
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + id;
-        result = prime * result + ((email == null) ? 0 : email.hashCode());
-        result = prime * result + ((pwd == null) ? 0 : pwd.hashCode());
-        return result;
-    }
+   
 
 }

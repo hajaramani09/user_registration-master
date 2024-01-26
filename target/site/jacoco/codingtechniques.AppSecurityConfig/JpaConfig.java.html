@@ -7,41 +7,38 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-<span class="nc" id="L16">public class JpaConfig {</span>
+<span class="nc" id="L15">public class JpaConfig {</span>
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-<span class="nc" id="L20">        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();</span>
-<span class="nc" id="L21">        entityManagerFactoryBean.setDataSource(dataSource);</span>
-<span class="nc" id="L22">        entityManagerFactoryBean.setPackagesToScan(&quot;main.java.codingtechniques&quot;);</span>
-<span class="nc" id="L23">        entityManagerFactoryBean.setJpaProperties(hibernateProperties());</span>
-<span class="nc" id="L24">        entityManagerFactoryBean.setPersistenceProviderClass(org.hibernate.jpa.HibernatePersistenceProvider.class);</span>
-<span class="nc" id="L25">        return entityManagerFactoryBean;</span>
+<span class="nc" id="L19">        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();</span>
+<span class="nc" id="L20">        entityManagerFactoryBean.setDataSource(dataSource);</span>
+<span class="nc" id="L21">        entityManagerFactoryBean.setPackagesToScan(&quot;main.java.codingtechniques&quot;);</span>
+<span class="nc" id="L22">        entityManagerFactoryBean.setJpaProperties(hibernateProperties());</span>
+<span class="nc" id="L23">        entityManagerFactoryBean.setPersistenceProviderClass(org.hibernate.jpa.HibernatePersistenceProvider.class);</span>
+<span class="nc" id="L24">        return entityManagerFactoryBean;</span>
     }
 
     @Bean
     public JpaTransactionManager transactionManager(jakarta.persistence.EntityManagerFactory entityManagerFactory) {
-<span class="nc" id="L30">        return new JpaTransactionManager(entityManagerFactory);</span>
+<span class="nc" id="L29">        return new JpaTransactionManager(entityManagerFactory);</span>
     }
 
     private Properties hibernateProperties() {
-<span class="nc" id="L34">        Properties properties = new Properties();</span>
-<span class="nc" id="L35">        properties.put(&quot;hibernate.dialect&quot;, &quot;org.hibernate.dialect.MySQL57Dialect&quot;);</span>
-<span class="nc" id="L36">        return properties;</span>
+<span class="nc" id="L33">        Properties properties = new Properties();</span>
+<span class="nc" id="L34">        properties.put(&quot;hibernate.dialect&quot;, &quot;org.hibernate.dialect.MySQL57Dialect&quot;);</span>
+<span class="nc" id="L35">        return properties;</span>
     }
 
     @Bean
     public PlatformTransactionManager txManager() {
-<span class="nc" id="L41">        return new JpaTransactionManager();</span>
+<span class="nc" id="L40">        return new JpaTransactionManager();</span>
     }
-
-  
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
