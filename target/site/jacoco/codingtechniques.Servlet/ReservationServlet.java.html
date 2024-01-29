@@ -26,8 +26,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-<span class="nc" id="L29">        super.doGet(req, resp);</span>
-<span class="nc" id="L30">    }</span>
+<span class="nc" id="L29">        PrintWriter out=resp.getWriter();</span>
+<span class="nc" id="L30">        resp.setContentType(&quot;test/html&quot;);</span>
+<span class="nc" id="L31">        out.print(&quot;&lt;h1&gt;This is get method of my servlet&lt;/h1&gt;&quot;);</span>
+<span class="nc" id="L32">    }</span>
+    
 
     
 

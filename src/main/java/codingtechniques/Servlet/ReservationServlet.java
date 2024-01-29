@@ -26,8 +26,11 @@ public class ReservationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        PrintWriter out=resp.getWriter();
+        resp.setContentType("test/html");
+        out.print("<h1>This is get method of my servlet</h1>");
     }
+    
 
     
 
