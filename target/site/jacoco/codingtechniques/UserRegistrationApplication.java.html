@@ -12,22 +12,20 @@ import org.springframework.data.repository.config.BootstrapMode;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-
 @EnableTransactionManagement
 @EnableWebMvc
 @EnableJpaRepositories(bootstrapMode = BootstrapMode.DEFAULT)
 @ComponentScan(basePackages = { &quot;main.java.codingtechniques&quot; })
-@SpringBootApplication(scanBasePackages =&quot;main.java.codingtechniques&quot;,exclude ={HibernateJpaAutoConfiguration.class})
-@EnableAutoConfiguration(exclude={SecurityAutoConfiguration.class})
-
-<span class="nc" id="L23">public class UserRegistrationApplication extends SpringBootServletInitializer {</span>
+@SpringBootApplication(scanBasePackages = &quot;main.java.codingtechniques&quot;, exclude = {
+		HibernateJpaAutoConfiguration.class })
+@EnableAutoConfiguration(exclude = { SecurityAutoConfiguration.class })
+<span class="nc" id="L22">public class UserRegistrationApplication extends SpringBootServletInitializer {</span>
 
 	public static void main(String[] args) {
 
-<span class="nc" id="L27">		SpringApplication.run(UserRegistrationApplication.class, args);</span>
-	
-<span class="nc" id="L29">}</span>
+<span class="nc" id="L26">		SpringApplication.run(UserRegistrationApplication.class, args);</span>
 
+<span class="nc" id="L28">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

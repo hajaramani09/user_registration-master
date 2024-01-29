@@ -12,21 +12,19 @@ import org.springframework.data.repository.config.BootstrapMode;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-
 @EnableTransactionManagement
 @EnableWebMvc
 @EnableJpaRepositories(bootstrapMode = BootstrapMode.DEFAULT)
 @ComponentScan(basePackages = { "main.java.codingtechniques" })
-@SpringBootApplication(scanBasePackages ="main.java.codingtechniques",exclude ={HibernateJpaAutoConfiguration.class})
-@EnableAutoConfiguration(exclude={SecurityAutoConfiguration.class})
-
+@SpringBootApplication(scanBasePackages = "main.java.codingtechniques", exclude = {
+		HibernateJpaAutoConfiguration.class })
+@EnableAutoConfiguration(exclude = { SecurityAutoConfiguration.class })
 public class UserRegistrationApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 
 		SpringApplication.run(UserRegistrationApplication.class, args);
-	
-}
 
+	}
 
 }
