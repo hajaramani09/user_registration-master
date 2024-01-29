@@ -8,6 +8,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.RegistrationBean;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
+import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver;
 import org.springframework.security.authentication.AuthenticationEventPublisher;
 import org.springframework.security.authentication.DefaultAuthenticationEventPublisher;
 import org.springframework.security.config.Customizer;
@@ -99,4 +100,9 @@ public class AppSecurityConfig {
         return source;
     }
 
+    @Bean
+    public InstrumentationLoadTimeWeaver loadTimeWeaver() throws Throwable {
+        InstrumentationLoadTimeWeaver loadTimeWeaver = new InstrumentationLoadTimeWeaver();
+        return loadTimeWeaver;
+    }
 }

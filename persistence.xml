@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
- <persistence-unit name="Grid-Persistence" transaction-type="JTA">
- <provider>org.hibernate.ejb.HibernatePersistence</provider>
- <jta-data-source>java:/DefaultDS</jta-data-source>
- <exclude-unlisted-classes>false</exclude-unlisted-classes>
- <properties>
- <property name="hibernate.transaction.factory_class" value="org.hibernate.transaction.JTATransactionFactory"/>
- <property name="hibernate.hbm2ddl.auto" value="validate"/>
- </properties>
- </persistence-unit>
- <persistence-unit name="analytics-persistence-unit" transaction-type="RESOURCE_LOCAL">
-    <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <!--non-jta-data-source>analyticsDS</non-jta-data-source-->
-    <properties>
-        <property name="openjpa.ConnectionUserName" value="SA"/>
-        <property name="openjpa.ConnectionPassword" value=""/>
-        <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/db_jnane"/>
-        <property name="openjpa.ConnectionDriverName" value="com.mysql.cj.jdbc.Driver"/>
-    
-        <property name="openjpa.DynamicEnhancementAgent" value="false"/>
-        <property name="openjpa.RuntimeUnenhancedClasses" value="unsupported"/>
-        <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
-        <property name="openjpa.Log" value="log4j"/>
-        <property name="openjpa.ConnectionFactoryProperties" value="PrettyPrint=true, PrettyPrintLineLength=72, PrintParameters=true, MaxActive=10, MaxIdle=5, MinIdle=2, MaxWait=60000"/>
-    </properties>
-</persistence-unit>
-<persistence-unit name="name" transaction-type="RESOURCE_LOCAL"></persistence-unit>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+    <persistence-unit name="Grid-Persistence" transaction-type="JTA">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <jta-data-source>java:/DefaultDS</jta-data-source>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.transaction.factory_class"
+                value="org.hibernate.transaction.JTATransactionFactory" />
+            <property name="hibernate.hbm2ddl.auto" value="validate" />
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="analytics-persistence-unit" transaction-type="RESOURCE_LOCAL">
+        <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+        <!--non-jta-data-source>analyticsDS</non-jta-data-source-->
+        <properties>
+            <property name="openjpa.ConnectionUserName" value="SA" />
+            <property name="openjpa.ConnectionPassword" value="" />
+            <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/db_jnane" />
+            <property name="openjpa.ConnectionDriverName" value="com.mysql.cj.jdbc.Driver" />
 
-<persistence-unit name="org.hibernate.ogm.tutorial.jpa" transaction-type="JTA">
-    <!-- Use Hibernate OGM provider: configuration will be transparent -->
-    <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
-    <properties>
-        <property name="hibernate.transaction.jta.platform"
-                  value="org.hibernate.service.jta.platform.internal.JBossStandAloneJtaPlatform" />
-        <property name="hibernate.ogm.datastore.provider"
-                  value="infinispan" />
-    </properties>
-</persistence-unit>
- </persistence>
+            <property name="openjpa.DynamicEnhancementAgent" value="false" />
+            <property name="openjpa.RuntimeUnenhancedClasses" value="unsupported" />
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema" />
+            <property name="openjpa.Log" value="log4j" />
+            <property name="openjpa.ConnectionFactoryProperties"
+                value="PrettyPrint=true, PrettyPrintLineLength=72, PrintParameters=true, MaxActive=10, MaxIdle=5, MinIdle=2, MaxWait=60000" />
+        </properties>
+    </persistence-unit>
+
+
+    <persistence-unit name="org.hibernate.ogm.tutorial.jpa" transaction-type="JTA">
+        <!-- Use Hibernate OGM provider: configuration will be transparent -->
+        <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+        <properties>
+            <property name="hibernate.transaction.jta.platform"
+                value="org.hibernate.service.jta.platform.internal.JBossStandAloneJtaPlatform" />
+            <property name="hibernate.ogm.datastore.provider"
+                value="infinispan" />
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="myUnit" transaction-type="RESOURCE_LOCAL">
+        <mapping-file>META-INF/orm.xml</mapping-file>
+        <exclude-unlisted-classes />
+    </persistence-unit>
+</persistence>
