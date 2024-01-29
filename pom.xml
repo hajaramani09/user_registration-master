@@ -15,7 +15,7 @@
 	<description>User Registration Application</description>
 	<properties>
 		<java.version>17</java.version>
-     
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -292,10 +292,9 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<version>3.2.2</version>
 		</dependency>
 
-	
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -370,7 +369,7 @@
 					</archive>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
