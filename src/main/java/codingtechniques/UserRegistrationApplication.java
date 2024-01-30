@@ -19,11 +19,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootApplication(scanBasePackages = "main.java.codingtechniques", exclude = {
 		HibernateJpaAutoConfiguration.class })
 @EnableAutoConfiguration(exclude = { SecurityAutoConfiguration.class })
+
 public class UserRegistrationApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 
 		SpringApplication.run(UserRegistrationApplication.class, args);
+		
 
 	}
 

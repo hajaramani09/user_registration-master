@@ -62,13 +62,11 @@ public class ResponsableServiceImpl {
     }
 
     public Responsable getUser(String email, String pwd) throws ResponseStatusException {
-        // check with ldap
         if (email == null || email.equals("") || pwd == null || pwd.equals(""))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email ou mot de passe non valide");
         Optional<Responsable> user = userInterface.findByEmail(email);
         if (!user.isPresent())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Utilisateur non trouvé");
-        // check admin
         if (email.equals("admin@bs.ocpgroup.ma") && !pwd.equals("#admin@admin#"))
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Email ou mot de passe incorrect");
         return user.get();
@@ -81,11 +79,7 @@ public class ResponsableServiceImpl {
         return user.get();
     }
 
-    /**
-     * @param userId
-     * @param user
-     * @return
-     */
+   
     public Responsable updateUser(Integer userId, Responsable user) {
         if (user.getEmail() == null || user.getEmail().equals(""))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email invalide");

@@ -52,7 +52,6 @@ public SessionFactory getSessionFactory(DataSource dataSource) {
 
     return builder.buildSessionFactory();
 }
-
-
-
 }
+
+

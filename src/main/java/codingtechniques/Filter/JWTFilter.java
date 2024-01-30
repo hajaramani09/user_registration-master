@@ -9,12 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.boot.web.servlet.ServletContextInitializerBeans;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.core.annotation.Order;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
@@ -53,7 +48,7 @@ public class JWTFilter extends OncePerRequestFilter {
 
 	}
 
-	@Bean
+	/* @Bean
 	public CommandLineRunner cmdLineRunner(ApplicationContext context) {
 		return args -> {
 			ServletContextInitializerBeans scib = new ServletContextInitializerBeans(context,
@@ -63,6 +58,8 @@ public class JWTFilter extends OncePerRequestFilter {
 				System.out.println(s);
 			});
 		};
-	}
+	} */
+
+	
 
 }
