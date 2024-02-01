@@ -2,6 +2,9 @@ package codingtechniques.controller;
 
 import codingtechniques.model.Responsable;
 import codingtechniques.service.ResponsableServiceImpl;
+import lombok.Getter;
+import lombok.Setter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +17,8 @@ import java.util.List;
 
 @RestController
 @Service
+@Getter
+@Setter
 @RequestMapping("/api/responsables")
 public class ResponsableController {
 

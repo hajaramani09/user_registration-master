@@ -1,57 +1,38 @@
 package codingtechniques.AppSecurityConfig;
 
-import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import jakarta.persistence.EntityManagerFactory;
+
 import javax.sql.DataSource;
-import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
 public class JpaConfig {
 
+    
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource);
-        entityManagerFactoryBean.setPackagesToScan("main.java.codingtechniques");
-        entityManagerFactoryBean.setJpaProperties(hibernateProperties());
-        entityManagerFactoryBean.setPersistenceProviderClass(org.hibernate.jpa.HibernatePersistenceProvider.class);
-        return entityManagerFactoryBean;
-    }
-
-    @Bean
-    public JpaTransactionManager transactionManager(jakarta.persistence.EntityManagerFactory entityManagerFactory) {
-        return new JpaTransactionManager(entityManagerFactory);
-    }
-
-    private Properties hibernateProperties() {
-        Properties properties = new Properties();
-        properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect");
-        return properties;
-    }
-
-    @Bean
-    public PlatformTransactionManager txManager() {
-        return new JpaTransactionManager();
-    }
-
-    @Bean
-public SessionFactory getSessionFactory(DataSource dataSource) {
-
-    LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
-
-    builder.addProperties(hibernateProperties());
-    builder.scanPackages("main.java.codingtechniques");
-
-    return builder.buildSessionFactory();
-}
+public LocalContainerEntityManagerFactoryBean entityManagerFactory(
+  @Qualifier("dataSource") DataSource dataSource) {
+ LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+ em.setDataSource(dataSource);
+ em.setPackagesToScan("main.java.codingtechniques.model"); // Adjust the package
+ em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+ return em;
 }
 
+     @Bean
+ public JpaTransactionManager transactionManager(
+   @Qualifier("entityManagerFactory") EntityManagerFactory entityManagerFactory) {
+  JpaTransactionManager transactionManager = new JpaTransactionManager();
+  transactionManager.setEntityManagerFactory(entityManagerFactory);
+  return transactionManager;
+ }
 
+}
