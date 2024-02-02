@@ -1,0 +1,16 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+user_registration,codingtechniques.AppSecurityConfig,AppSecurityConfig,165,0,0,0,33,0,12,0,12,0
+user_registration,codingtechniques.AppSecurityConfig,ApiAuthenticationEntryPoint,8,0,0,0,2,0,2,0,2,0
+user_registration,codingtechniques.AppSecurityConfig,JpaConfig,47,0,0,0,12,0,5,0,5,0
+user_registration,codingtechniques.model,Reservation,111,0,0,0,39,0,21,0,21,0
+user_registration,codingtechniques.model,Service,67,0,0,0,12,0,2,0,2,0
+user_registration,codingtechniques.model,Responsable,75,0,4,0,22,0,11,0,9,0
+user_registration,codingtechniques.WebMvcConfig,WebMvcConfig,38,0,0,0,10,0,4,0,4,0
+user_registration,codingtechniques,WebServerFactory,7,0,0,0,3,0,2,0,2,0
+user_registration,codingtechniques,UserRegistrationApplication,8,0,0,0,3,0,2,0,2,0
+user_registration,codingtechniques.service,ResponsableServiceImpl,219,0,34,0,47,0,28,0,11,0
+user_registration,codingtechniques.service,ReservationServiceImpl,263,0,36,0,75,0,32,0,11,0
+user_registration,codingtechniques.Filter,JWTFilter,91,0,0,0,23,0,7,0,7,0
+user_registration,codingtechniques.controller,ReservationController,71,0,0,0,14,0,3,0,3,0
+user_registration,codingtechniques.controller,ResponsableController,49,0,0,0,7,0,6,0,6,0
+user_registration,codingtechniques.Servlet,ReservationServlet,23,0,0,0,9,0,2,0,2,0
