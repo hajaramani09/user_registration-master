@@ -8,6 +8,6 @@ public class WebServerFactory implements
 
     @Override
     public void customize(ConfigurableServletWebServerFactory factory) {
-        factory.setPort(8080);
+        factory.setPort(9001);
     }
 }

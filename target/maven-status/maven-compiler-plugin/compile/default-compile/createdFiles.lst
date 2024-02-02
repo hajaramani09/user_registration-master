@@ -2,6 +2,7 @@ codingtechniques\model\Reservation.class
 codingtechniques\AppSecurityConfig\AppSecurityConfig.class
 codingtechniques\service\ResponsableServiceImpl.class
 codingtechniques\repositories\ResponsableRepositories.class
+codingtechniques\AppSecurityConfig\ExceptionHandler.class
 codingtechniques\model\Responsable.class
 codingtechniques\controller\ReservationController.class
 codingtechniques\UserRegistrationApplication.class
